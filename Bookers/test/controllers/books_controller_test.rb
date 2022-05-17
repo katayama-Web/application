@@ -1,8 +1,8 @@
 require "test_helper"
 
-class HomesControllerTest < ActionDispatch::IntegrationTest
+class BooksControllerTest < ActionDispatch::IntegrationTest
   test "should get top" do
-    get homes_top_url
+    get books_top_url
     assert_response :success
   end
 end
