@@ -7,7 +7,7 @@
   <p>body</p>
   <span><%= book.body %></span>
   <span>
-    <%= link_to "show", "/books#{book.id}" %>
+    <%= link_to "show", book_path(book.id) %>
   </span>
   <% end %>
 <!--form_with部分-->

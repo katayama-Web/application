@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :books
   get 'top' => 'homes#top'
   
-  get 'books/:id', to: 'books#show'
+  get 'books/:id', to: 'books#show', as: 'book'
 end
