@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4" >
+      <div class="sidebar">
+        <h1>User Info</h1>
+        <%= image_tag @user.get_profile_image(100,100) %>
+        <div>name</div> <div>><%= @user.name %></div>
+        <div>introduction</div> <div><%= @user.introduction %></div>
+<a class="btn btn-outline-socondary btn-block"href="/users/:id/edit">
+  <i class="fas fa-user-cog"></i>
+</a>
+        <%= link_to "Edit",users_path, class: "btn btn-secondary" %>
+
+        <h1>New Book</h1>
+        <!-- form_with -->
+        <%= form_with model: Book.new do |f| %>
+          <h4>title</h4>
+            <%= f.text_field :title %>
+	
+          <h4>opinion</h4>
+            <%= f.text_area :body %>
+	
+              <%= f.submit 'Create Book' %>
+        <% end %>
+      </div>
+    </div>
+<div class = "col-lg-8">
+<h2>Book detail</h2>
+<table class="table striped"> 
+  <tbody>
+      <tr>
+        <td>
+<%= link_to user_path(@book.user.id) do %>
+<%= @book.user.name %>
+<% end %>
+</td>
+        <td><%= image_tag @book.user.get_profile_image(100,100) %></td>
+        <td><%= link_to book_path(@book.id) do %>
+          <%= @book.title %>
+          <% end %></td>
+        <td><%= @book.body %></td>
+        <td>
+          <% if @book.user == current_user %>
+          <%= link_to "Edit", edit_book_path(@book.id) %>
+          <% end %>
+        </td>
+        <td>
+          <% if @book.user == current_user %>
+          <%= link_to "Destroy", book_path(@book), method: :delete %>
+          <% end %>
+        </td>
+      </tr>
+  </tbody>
+</table>
+   </div>
+  </div>
+</div>

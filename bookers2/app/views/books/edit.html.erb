@@ -1,0 +1,30 @@
+
+
+
+
+
+<h1>Editing Book</h1>
+<%= form_with model: Book do |f| %>
+ <label for="InputTitle"></label>
+ <form>
+ <div class="form-group">
+    <label for="book_title">Title</label>
+    <input class="form-control book_title" type="text" value="wa" name="book[title]" id="book_title">
+  </div>
+  
+  <div class="form-group">
+    <label for="book_opinion">Opinion</label>
+    <textarea class="form-control book_body" name="book[body]" id="book_body">a</textarea>
+  </div>
+ <div class="form-group">
+    <input type="submit" name="commit" value="Update Book" class="btn btn-success" data-disable-with="Update Book">
+  </div>
+  
+  </form>
+ 
+ <%= f.text_field :title, autofocus: true, id:"inputTitle", placeholder:"title"%>
+ <%= f.text_field :body, autofocus: true, id:"inputTBody", placeholder:"opinion"%>
+ <%= f.submit "submit" %>
+ <% end %>
+ <%= link_to "Show", book_path %>
+ <%= link_to "Back", book_path %>
